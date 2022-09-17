@@ -1,0 +1,16 @@
+{
+  "name": "metalyrics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^20.1.4",
+    "hangul-js": "^0.2.6",
+    "nconf": "^0.12.0"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
