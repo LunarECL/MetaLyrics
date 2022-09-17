@@ -10,7 +10,7 @@ function toggleDropdown() {
   }
 }
 
-addEventListener("load", (event) => load());
+addEventListener("DOMContentLoaded", (event) => load());
 
 async function load() {
   const data = await window.MetaAPI.getFirst();
@@ -50,6 +50,10 @@ async function load() {
 
 function drop() {
   document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function reset() {
+  window.MetaAPI.changeDir();
 }
 
 function filterFunction() {

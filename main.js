@@ -23,6 +23,10 @@ function createWindow() {
     win.loadFile("index.html");
   }
 
+  ipcMain.on("change-dir", (event) => {
+    win.loadFile("index.html");
+  });
+
   ipcMain.on("set-dir", (event, dir) => {
     var myOptions = {
       loc: path.dirname(dir),
@@ -36,10 +40,12 @@ function createWindow() {
       }
       console.log("Configuration saved successfully.");
     });
+    myObj = JSON.parse(data);
     win.loadFile("main.html");
   });
 
   ipcMain.handle("get-first", () => {
+    console.log(myObj["loc"]);
     var files = fs.readdirSync(myObj["loc"]);
     var myOptions = [];
     for (var i in files) {
