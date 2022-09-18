@@ -5,12 +5,25 @@
   "main": "main.js",
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "electron": "^20.1.4",
-    "hangul-js": "^0.2.6",
-    "nconf": "^0.12.0"
+  "build": {
+    "win": {
+      "icon": "assets/icon.ico"
+    }
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "electron-builder --win portable --ia32",
+    "build:win64": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^20.1.4"
+  },
+  "dependencies": {
+    "electron-json-config": "^2.0.0-beta"
   }
 }
